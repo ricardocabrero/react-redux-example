@@ -3,37 +3,42 @@ const ADD = 'add';
 const REMOVE = 'remove';
 const TOGGLE = 'toggle';
 
-const listReducer = (state= [], action) => {
+const initialState = JSON.parse(localStorage.getItem('todos')) || [];
+
+const listReducer = (state = initialState, action) => {
     switch(action.type) {
         case ADD:
             return [...state, action.payload];
+
         case REMOVE:
-            return state.filter(el => el.id !== action.payload.id);
+            return state.filter(el => el.id !== action.payload);
+
         case TOGGLE:
-            return state.map(el => (el.id === action.payload.id) 
+            return state.map(el => (el.id === action.payload) 
             ? {...el, selected:!el.selected} : el);
+            
         default:
             return state;
     }
 }
 
-const actionAdd = (value, id, selected) => ({
+const actionAdd = (description, id, selected) => ({
     type: ADD,
     payload: {
         id,
-        value,
+        description,
         selected,
     }
 });
 
-const actionRemove = (item) => ({
+const actionRemove = (id) => ({
     type: REMOVE,
-    payload: item
+    payload: id
 });
 
-const actionToggle = (item) => ({
+const actionToggle = (id) => ({
     type: TOGGLE,
-    payload: item
+    payload: id
 });
 
 export {

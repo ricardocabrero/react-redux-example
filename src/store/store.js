@@ -1,8 +1,10 @@
 import { createStore, combineReducers } from 'redux';
-import listReducer from '../reducers/listReducer';
+import listReducer from '../reducersDuck/listReducer';
+import uiReducer from '../reducersDuck/uiReducer';
 
 const reducers = combineReducers({
-    list: listReducer, 
+    list: listReducer,
+    repeat: uiReducer, 
 });
 
 const store = createStore(

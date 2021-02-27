@@ -1,0 +1,63 @@
+
+.item {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    align-items: center;
+    position: relative;
+}
+
+.item span {
+    width: 21px;
+}
+
+.item p {
+    font-size: 16px;
+    cursor: pointer;
+    width: calc(100% - 109px);
+    text-align: left;
+    margin: 0;
+    text-transform: capitalize;
+    padding-left: 5px;
+}
+
+.item span.icon {
+    width: auto;
+    position: relative;
+}
+
+.item span.icon:before {
+    content: '+';
+    cursor: pointer;
+    font-size: 26px;
+    color: green;
+    line-height: 10px;
+    top: 2px;
+    font-weight: 400;
+    position: relative;
+}
+
+.item.selected span.icon:before {
+    content: '-';
+}
+
+.item.selected p {
+    text-decoration: line-through;
+}
+
+.item button {
+    color: #fff;
+    border: none;
+    background: #dc3545;
+    width: 67px;
+    height: 30px;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0 10px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+
+
